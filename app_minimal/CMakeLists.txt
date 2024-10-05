@@ -27,12 +27,14 @@ set(SRCS
     # imgui
     ${imgui_SOURCE_DIR}/imgui_demo.cpp
     ${imgui_SOURCE_DIR}/imgui_draw.cpp
-    ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
-    ${imgui_SOURCE_DIR}/backends/imgui_impl_sdl2.cpp
     ${imgui_SOURCE_DIR}/imgui_tables.cpp
     ${imgui_SOURCE_DIR}/imgui_widgets.cpp
     ${imgui_SOURCE_DIR}/imgui.cpp
     ${imgui_SOURCE_DIR}/misc/cpp/imgui_stdlib.cpp
+
+    # Backends not needed, .cpp already included by imgui_app.h example
+    # ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
+    # ${imgui_SOURCE_DIR}/backends/imgui_impl_sdl2.cpp
 )
 
 add_executable(example ${SRCS})
@@ -40,6 +42,7 @@ add_executable(example ${SRCS})
 target_compile_definitions(example PRIVATE
     IMGUI_ENABLE_TEST_ENGINE
     IMGUI_TEST_ENGINE_ENABLE_COROUTINE_STDTHREAD_IMPL=1
+    IMGUI_APP_SDL2_GL3
 )
 
 target_include_directories(example PRIVATE
