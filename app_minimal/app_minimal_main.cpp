@@ -76,7 +76,7 @@ int main(int argc, char** argv)
     bool aborted = false;
     while (!aborted)
     {
-        if (!aborted && !app->NewFrame(app))
+        if (!app->NewFrame(app))
             aborted = true;
         if (app->Quit)
             aborted = true;
